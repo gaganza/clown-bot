@@ -23,6 +23,10 @@ client.on("message", async (message) => {
       const connection = await voice.channel.join();
 
       connection.play(path.join(__dirname, "./audio/honk.mp3"));
+
+      setTimeout(() => {
+        connection.disconnect();
+      }, 1_500);
     }
   }
 });
