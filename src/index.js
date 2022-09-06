@@ -14,6 +14,10 @@ client.on("ready", () => {
 });
 
 client.on("message", async (message) => {
+  // ignore everyone mentions
+  if (message.content.match(Discord.MessageMentions.EVERYONE_PATTERN) !== null)
+    return;
+
   if (message.mentions.has(client.user.id)) {
     const { voice } = message.member;
 
